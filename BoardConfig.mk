@@ -27,7 +27,7 @@ BOARD_LEGACY_NL80211_STA_EVENTS  := true
 BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := device/sony/jlo/bluedroid
 
 # CM Hardware tunables
-# BOARD_HARDWARE_CLASS += device/sony/jlo/cmhw
+BOARD_HARDWARE_CLASS += device/sony/jlo/cmhw
 
 # Partition information
 BOARD_VOLD_MAX_PARTITIONS := 16
