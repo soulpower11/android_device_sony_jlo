@@ -32,6 +32,32 @@ BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := device/sony/jlo/bluedroid
 # Partition information
 BOARD_VOLD_MAX_PARTITIONS := 16
 
+#twrp 
+DEVICE_RESOLUTION := 480x800
+RECOVERY_SDCARD_ON_DATA := true -- this enables proper handling of /data/media on devices that have this folder for storage (most Honeycomb and devices that originally shipped with ICS like Galaxy Nexus)
+RECOVERY_GRAPHICS_USE_LINELENGTH := true -- fixes slanty looking graphics on some devices
+BOARD_HAS_NO_REAL_SDCARD := true -- disables things like sdcard partitioning and may save you some space if TWRP isn't fitting in your recovery patition
+TW_INCLUDE_DUMLOCK := true -- includes HTC Dumlock for devices that need it
+TW_NO_BATT_PERCENT := true -- disables the display of the battery percentage for devices that don't support it properly
+TW_CUSTOM_POWER_BUTTON := 107 -- custom maps the power button for the lockscreen
+TW_NO_REBOOT_BOOTLOADER := true -- removes the reboot bootloader button from the reboot menu
+TW_NO_REBOOT_RECOVERY := true -- removes the reboot recovery button from the reboot menu
+TW_NO_USB_STORAGE := true -- removes the USB storage button on devices that don't support USB storage
+RECOVERY_TOUCHSCREEN_SWAP_XY := true -- swaps the mapping of touches between the X and Y axis
+RECOVERY_TOUCHSCREEN_FLIP_Y := true -- flips y axis touchscreen values
+RECOVERY_TOUCHSCREEN_FLIP_X := true -- flips x axis touchscreen values
+TW_ALWAYS_RMRF := true -- forces the rm -rf option to always be on (needed for some Motorola devices)
+TW_NEVER_UNMOUNT_SYSTEM := true -- never unmount system (needed for some Motorola devices)
+TW_INCLUDE_INJECTTWRP := true -- adds ability to inject TWRP into some Samsung boot images for Samsung devices that have recovery as a second ramdisk in the boot image
+TW_DEFAULT_EXTERNAL_STORAGE := true -- defaults to external storage instead of internal on dual storage devices (largely deprecated)
+TWRP_EVENT_LOGGING := true -- enables touch event logging to help debug touchscreen issues (don't leave this on for a release - it will fill up your logfile very quickly)
+TARGET_RECOVERY_PIXEL_FORMAT := "BGRA_8888"
+TARGET_RECOVERY_PIXEL_FORMAT := "RGBX_8888"
+TARGET_RECOVERY_PIXEL_FORMAT := "RGB_565"
+
+BOARD_HAS_FLIPPED_SCREEN := true -- flips the screen upside down for screens that were mounted upside-down
+TARGET_PREBUILT_RECOVERY_KERNEL := path/to/kernel -- use to specify a kernel specifically for building recovery
+
 # Recovery
 TARGET_RECOVERY_FSTAB := device/sony/jlo/rootdir/fstab.sony
 BOARD_BOOTIMAGE_PARTITION_SIZE := 0x01400000
