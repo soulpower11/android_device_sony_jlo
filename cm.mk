@@ -15,9 +15,6 @@
 # Inherit device configuration
 $(call inherit-product, device/sony/jlo/full_jlo.mk)
 
-# Inherit CM common GSM stuff.
-$(call inherit-product, vendor/cm/config/gsm.mk)
-
 # Inherit CM common Phone stuff.
 $(call inherit-product, vendor/cm/config/common_mini_phone.mk)
 
